@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class testMainClass {
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        String input = s.nextLine();
-        System.out.println(" User input is :  " + input);
-        System.out.println("Test repository");
+        short a = 16968;
+        short b = 5243;
+        long c = ((a & 0xFFFF) << 16 | (b & 0xFFFF));
+        //((bb.getShort() & 0xFFFF) << 16) | (bb.getShort() & 0xFFFF);
+        System.out.println("INT IS : " + c);
     }
 
 }
