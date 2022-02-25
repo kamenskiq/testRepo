@@ -25,11 +25,7 @@ public class ConditionalStatements {
             System.out.println("Not enough money!");
             System.out.format("Wingard needs %.2f leva more.", ((totalPrice + decor) - budget));
         }
-        if ((totalPrice + decor) <= budget) {
-            System.out.println("Action!");
-            System.out.format("Wingard starts filming with %.2f leva left.", (budget - (totalPrice + decor)));
-        }
-        // This is change two
+        
     }
 
 }
