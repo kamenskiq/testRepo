@@ -9,23 +9,36 @@ import java.util.Scanner;
 public class ConditionalStatements {
 
     public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String in = s.nextLine();
+        int count = 0;
+        for (int i = 0; i < in.length(); i++) {
+            char n = in.charAt(i);
 
-        Scanner scanner = new Scanner(System.in);
-        double budget = Double.parseDouble(scanner.nextLine());
-        int numStat = Integer.parseInt(scanner.nextLine());
-        double price = Double.parseDouble(scanner.nextLine());
-        double totalPrice;
-        double decor = budget * 0.1;
-        if (numStat > 150) {
-            totalPrice = numStat * (price - (price * 0.1));
-        } else {
-            totalPrice = numStat * price;
+            switch (n) {
+                case 'a': {
+                    count += 1;
+                }
+                break;
+                case 'e': {
+                    count += 2;
+                }
+                break;
+                case 'i': {
+                    count += 3;
+                }
+                break;
+
+                case 'o': {
+                    count += 4;
+                }
+                break;
+                case 'u': {
+                    count += 5;
+                }
+                break;
+            }
         }
-        if ((totalPrice + decor) > budget) {
-            System.out.println("Not enough money!");
-            System.out.format("Wingard needs %.2f leva more.", ((totalPrice + decor) - budget));
-        }
-        
+        System.out.println(count);
     }
-
 }
