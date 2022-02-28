@@ -10,23 +10,28 @@ public class ConditionalStatements {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int hours = Integer.parseInt(s.nextLine());
-        String day = s.nextLine();
-        switch (day) {
-            case "Monday":
-            case "Tuesday":
-            case "Wednesday":
-            case "Thursday":
-            case "Friday":
-            case "Saturday": {
-                if (hours < 10 || hours > 18) {
-                    System.out.println("closed");
-                } else {
-                    System.out.println("open");
-                }
+
+        String product = s.nextLine();
+
+        switch (product) {
+            case "banana":
+            case "apple":
+            case "kiwi":
+            case "cherry":
+            case "lemon":
+            case "grapes": {
+                System.out.println("fruit");
             }
-            case "Sunday": {
-                System.out.println("closed");
+            break;
+            case "tomato":
+            case "cucumber":
+            case "pepper":
+            case "carrot": {
+                System.out.println("vegetable");
+            }
+            break;
+            default: {
+                System.out.println("unknown");
             }
         }
     }
