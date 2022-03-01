@@ -10,29 +10,39 @@ public class ConditionalStatements {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int age = Integer.parseInt(s.nextLine());
-        double price = Double.parseDouble(s.nextLine());
-        int toyPrice = Integer.parseInt(s.nextLine());
-        int evenProfit = 0;
-        int oddProfit = 0;
-        double monney = 0;
-        int odd = 0;
-        int even = 0;
-        for (int i = 1; i <= age; i++) {
-            if (i % 2 == 0) {
-                even++;
-                evenProfit += (even * 10);
-            } else {
-                odd++;
-                oddProfit = odd * toyPrice;
-            }
+        int num = Integer.parseInt(s.nextLine());
+        int salary = Integer.parseInt(s.nextLine());
+        boolean lostFlag = false;
+        int i = 0;
+        while (i < num) {
+            String web = s.nextLine();
+            switch (web) {
+                case "Facebook": {
+                    salary -= 150;
+                }
+                break;
+                case "Instagram": {
+                    salary -= 100;
+                }
+                break;
+                case "Reddit": {
+                    salary -= 50;
+                }
+                break;
 
+            }
+            if (salary <= 0) {
+                System.out.println("You have lost your salary.");
+                i = num;
+                lostFlag = true;
+            }
+            i++;
         }
-        monney = (evenProfit - even) + oddProfit;
-        if (monney >= price) {
-            System.out.printf("Yes! %.2f", (monney - price));
-        } else {
-            System.out.printf("No! %.2f", (price - monney));
+        if(lostFlag){
+            
+        }else{
+            System.out.println(salary);
+            
         }
     }
 }
