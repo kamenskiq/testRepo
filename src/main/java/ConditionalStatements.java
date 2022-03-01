@@ -10,101 +10,42 @@ public class ConditionalStatements {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        String fruit = s.nextLine();
-        String weekDay = s.nextLine();
-        boolean errorFlag = false;
-        double quantity = Double.parseDouble(s.nextLine());
-        double price = 0.0;
-        switch (weekDay) {
-            case "Monday":
-            case "Tuesday":
-            case "Wednesday":
-            case "Thursday":
-            case "Friday": {
-                switch (fruit) {
-                    case "banana": {
-                        price = 2.50;
-                    }
-                    break;
-                    case "apple": {
-                        price = 1.20;
-                    }
-                    break;
-                    case "orange": {
-                        price = 0.85;
-                    }
-                    break;
-                    case "grapefruit": {
-                        price = 1.45;
-                    }
-                    break;
-                    case "kiwi": {
-                        price = 2.70;
-                    }
-                    break;
-                    case "pinapple": {
-                        price = 5.50;
-                    }
-                    break;
-                    case "grapes": {
-                        price = 3.85;
-                    }
-                    break;
-                    default: {
-                        errorFlag = true;
-                        System.out.println("error");
-                    }
-                }
-                break;
+        int in = Integer.parseInt(s.nextLine());
+        int numArr[] = new int[in];
+        double p1 = 0;
+        double p2 = 0;
+        double p3 = 0;
+        double p4 = 0;
+        double p5 = 0;
+        int i = 0;
+        while (i < in) {
+            numArr[i] = Integer.parseInt(s.nextLine());
+            i++;
+        }
 
+        for (int j = 0; j < in; j++) {
+            if (numArr[j] < 200) {
+                p1++;
             }
-            case "Saturday":
-            case "Sunday": {
-                switch (fruit) {
-                    case "banana": {
-                        price = 2.70;
-                    }
-                    break;
-                    case "apple": {
-                        price = 1.25;
-                    }
-                    break;
-                    case "orange": {
-                        price = 0.90;
-                    }
-                    break;
-                    case "grapefruit": {
-                        price = 1.60;
-                    }
-                    break;
-                    case "kiwi": {
-                        price = 3.00;
-                    }
-                    break;
-                    case "pinapple": {
-                        price = 5.60;
-                    }
-                    break;
-                    case "grapes": {
-                        price = 4.20;
-                    }
-                    break;
-                    default: {
-                        errorFlag = true;
-                        System.out.println("error");
-                    }
-                }
-                break;
+            if (numArr[j] >= 200 && numArr[j] <= 399) {
+                p2++;
             }
-            default: {
-                errorFlag = true;
-
-                System.out.println("error");
+            if (numArr[j] > 399 && numArr[j] <= 599) {
+                p3++;
+            }
+            if (numArr[j] > 599 && numArr[j] <= 799) {
+                p4++;
+            }
+            if (numArr[j] > 799) {
+                p5++;
             }
         }
-        double total = (quantity * price);
-        if (!errorFlag) {
-            System.out.println(total);
-        }
+//        System.out.printf("P1 = %f P2 = %f P3 = %f P4 = %f P5 = %f\n", p1, p2, p3, p4, p5);
+
+        System.out.printf("%.2f%%\n", (p1 = (p1 / in) * 100));
+        System.out.printf("%.2f%%\n", (p2 = (p2 / in) * 100));
+        System.out.printf("%.2f%%\n", (p3 = (p3 / in) * 100));
+        System.out.printf("%.2f%%\n", (p4 = (p4 / in) * 100));
+        System.out.printf("%.2f%%\n", (p5 = (p5 / in) * 100));
     }
 }
