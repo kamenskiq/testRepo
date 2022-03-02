@@ -10,40 +10,37 @@ public class ConditionalStatements {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int num = Integer.parseInt(s.nextLine());
-        int salary = Integer.parseInt(s.nextLine());
-        
-        boolean lostFlag = false;
-        int i = 0;
-        while (i < num) {
-            String web = s.nextLine();
-            switch (web) {
-                case "Facebook": {
-                    salary -= 150;
-                }
-                break;
-                case "Instagram": {
-                    salary -= 100;
-                }
-                break;
-                case "Reddit": {
-                    salary -= 50;
-                }
-                break;
+        int numGroup = Integer.parseInt(s.nextLine());
+        int numPeople = 0;
+        double allPeople = 0;
+        double m1 = 0;
+        double m2 = 0;
+        double m3 = 0;
+        double m4 = 0;
+        double m5 = 0;
+        double i = 0;
 
-            }
-            if (salary <= 0) {
-                System.out.println("You have lost your salary.");
-                i = num;
-                lostFlag = true;
+        while (i < numGroup) {
+            numPeople = Integer.parseInt(s.nextLine());
+            if (numPeople <= 5) {
+                m1 += numPeople;
+            } else if (numPeople >= 6 && numPeople <= 12) {
+                m2 += numPeople;
+            } else if (numPeople >= 13 && numPeople <= 25) {
+                m3 += numPeople;
+            } else if (numPeople >= 26 && numPeople <= 40) {
+                m4 += numPeople;
+            } else if (numPeople >= 41) {
+                m5 += numPeople;
             }
             i++;
         }
-        if(lostFlag){
-            
-        }else{
-            System.out.println(salary);
-            
-        }
+        allPeople = m1 + m2 + m3 + m4 + m5;
+        System.out.printf("%.2f%%\n", ((m1 / allPeople) * 100));
+        System.out.printf("%.2f%%\n", (m2 / allPeople) * 100);
+        System.out.printf("%.2f%%\n", (m3 / allPeople) * 100);
+        System.out.printf("%.2f%%\n", (m4 / allPeople) * 100);
+        System.out.printf("%.2f%%\n", (m5 / allPeople) * 100);
+
     }
 }
