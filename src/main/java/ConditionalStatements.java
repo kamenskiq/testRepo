@@ -12,6 +12,7 @@ public class ConditionalStatements {
         Scanner s = new Scanner(System.in);
         int num = Integer.parseInt(s.nextLine());
         int salary = Integer.parseInt(s.nextLine());
+        
         boolean lostFlag = false;
         int i = 0;
         while (i < num) {
