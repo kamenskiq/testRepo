@@ -1,46 +1,85 @@
+
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-import java.util.Scanner;
-
 public class ConditionalStatements {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int numGroup = Integer.parseInt(s.nextLine());
-        int numPeople = 0;
-        double allPeople = 0;
-        double m1 = 0;
-        double m2 = 0;
-        double m3 = 0;
-        double m4 = 0;
-        double m5 = 0;
-        double i = 0;
 
-        while (i < numGroup) {
-            numPeople = Integer.parseInt(s.nextLine());
-            if (numPeople <= 5) {
-                m1 += numPeople;
-            } else if (numPeople >= 6 && numPeople <= 12) {
-                m2 += numPeople;
-            } else if (numPeople >= 13 && numPeople <= 25) {
-                m3 += numPeople;
-            } else if (numPeople >= 26 && numPeople <= 40) {
-                m4 += numPeople;
-            } else if (numPeople >= 41) {
-                m5 += numPeople;
-            }
-            i++;
+        double budget;
+        String dest;
+        String season = null;
+        int numDays;
+
+        double price = 0;
+
+        budget = Double.parseDouble(s.nextLine());
+        dest = s.nextLine();
+        season = s.nextLine();
+        numDays = s.nextInt();
+
+        switch (dest) {
+            case "Dubai": {
+                switch (season) {
+                    case "Winter": {
+                        price = (numDays * 45000) - (((numDays * 45000) * 30) / 100);
+                    }
+                    break;
+                    case "Summer": {
+                       price = (numDays * 40000) - (((numDays * 40000) * 30) / 100);
+                    }
+                    break;
+                }
+                if (budget >= price) {
+                    System.out.printf("The budget for the movie is enough! We have %.2f leva left!", (budget - price));
+
+                } else {
+                    System.out.printf("The director needs %.2f leva more!", (price - budget));
+                }
+            }break;
+            case "Sofia":{
+                switch (season) {
+                    case "Winter": {
+                        price = (numDays * 17000) + (((numDays * 17000) * 25) / 100);
+                    }
+                    break;
+                    case "Summer": {
+                       price = (numDays * 12000) + (((numDays * 12000) * 25) / 100);
+                    }
+                    break;
+                }
+                if (budget >= price) {
+                    System.out.printf("The budget for the movie is enough! We have %.2f leva left!", (budget - price));
+
+                } else {
+                    System.out.printf("The director needs %.2f leva more!", (price - budget));
+                }
+            }break;
+            case "London" :{
+                switch (season) {
+                    case "Winter": {
+                        price = (numDays * 24000);
+                    }
+                    break;
+                    case "Summer": {
+                       price = (numDays * 20250);
+                    }
+                    break;
+                }
+                if (budget >= price) {
+                    System.out.printf("The budget for the movie is enough! We have %.2f leva left!", (budget - price));
+
+                } else {
+                    System.out.printf("The director needs %.2f leva more!", (price - budget));
+                }
+            }break;
         }
-        allPeople = m1 + m2 + m3 + m4 + m5;
-        System.out.printf("%.2f%%\n", ((m1 / allPeople) * 100));
-        System.out.printf("%.2f%%\n", (m2 / allPeople) * 100);
-        System.out.printf("%.2f%%\n", (m3 / allPeople) * 100);
-        System.out.printf("%.2f%%\n", (m4 / allPeople) * 100);
-        System.out.printf("%.2f%%\n", (m5 / allPeople) * 100);
 
     }
+
 }
