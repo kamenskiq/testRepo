@@ -12,74 +12,51 @@ public class ConditionalStatements {
         Scanner s = new Scanner(System.in);
 
         double budget;
-        String dest;
-        String season = null;
-        int numDays;
+        int num;
 
-        double price = 0;
+        String name;
+        double price;
+        double allPrice = 0;
 
         budget = Double.parseDouble(s.nextLine());
-        dest = s.nextLine();
-        season = s.nextLine();
-        numDays = s.nextInt();
+        num = Integer.parseInt(s.nextLine());
+        while (num != 0) {
 
-        switch (dest) {
-            case "Dubai": {
-                switch (season) {
-                    case "Winter": {
-                        price = (numDays * 45000) - (((numDays * 45000) * 30) / 100);
-                    }
-                    break;
-                    case "Summer": {
-                       price = (numDays * 40000) - (((numDays * 40000) * 30) / 100);
-                    }
-                    break;
+            name = s.nextLine();
+            price = Double.parseDouble(s.nextLine());
+            switch (name) {
+                case "Thrones": {
+                    price = price - ((price * 50) / 100);
                 }
-                if (budget >= price) {
-                    System.out.printf("The budget for the movie is enough! We have %.2f leva left!", (budget - price));
+                break;
 
-                } else {
-                    System.out.printf("The director needs %.2f leva more!", (price - budget));
+                case "Lucifer": {
+                    price = price - ((price * 40) / 100);
                 }
-            }break;
-            case "Sofia":{
-                switch (season) {
-                    case "Winter": {
-                        price = (numDays * 17000) + (((numDays * 17000) * 25) / 100);
-                    }
-                    break;
-                    case "Summer": {
-                       price = (numDays * 12000) + (((numDays * 12000) * 25) / 100);
-                    }
-                    break;
+                break;
+                case "Protector": {
+                    price = price - ((price * 30) / 100);
                 }
-                if (budget >= price) {
-                    System.out.printf("The budget for the movie is enough! We have %.2f leva left!", (budget - price));
+                break;
+                case "TotalDrama": {
+                    price = price - ((price * 20) / 100);
+                }
+                break;
+                case "Area": {
+                    price = price - ((price * 10) / 100);
+                }
+                break;
+            }
 
-                } else {
-                    System.out.printf("The director needs %.2f leva more!", (price - budget));
-                }
-            }break;
-            case "London" :{
-                switch (season) {
-                    case "Winter": {
-                        price = (numDays * 24000);
-                    }
-                    break;
-                    case "Summer": {
-                       price = (numDays * 20250);
-                    }
-                    break;
-                }
-                if (budget >= price) {
-                    System.out.printf("The budget for the movie is enough! We have %.2f leva left!", (budget - price));
-
-                } else {
-                    System.out.printf("The director needs %.2f leva more!", (price - budget));
-                }
-            }break;
+            num--;
+            allPrice += price;
+//            System.out.println("PRICE IS " + allPrice);
         }
-
+        if (budget >= allPrice) {
+            System.out.printf("You bought all the series and left with %.2f lv.", budget - allPrice);
+        } else {
+            System.out.printf("You need %.2f lv. more to buy the series!", allPrice - budget);
+        }
     }
 
 }
